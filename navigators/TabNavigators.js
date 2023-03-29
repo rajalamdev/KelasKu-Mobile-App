@@ -8,6 +8,7 @@ import AchievementScreen from '../screens/AchievementScreen';
 import SearchScreen from '../screens/SearchScreen'
 
 import { Ionicons } from '@expo/vector-icons';
+import SearchDetailScreen from '../screens/SearchDetailScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,13 +24,13 @@ export default function TabNavigators({ route }) {
 
                 if (route.name === "Home"){
                     iconName = focused ? "ios-home" : "ios-home-outline"
-                } else if(route.name === "Search"){
+                } else if(route.name === "Search" || route.name === "SearchDetail"){
                     iconName = focused ? "ios-search" : "ios-search-outline"
                 } else if(route.name === "Achievement"){
                     iconName = focused ? "ios-star" : "ios-star-outline"
                 } else if(route.name === "Profile"){
                     iconName = focused ? "ios-person" : "ios-person"
-                } 
+                }
 
                 return <Ionicons name={iconName} color={color} size={size} />
             },
@@ -49,6 +50,11 @@ export default function TabNavigators({ route }) {
         }} />
         <Tab.Screen name="Profile" component={ProfileScreen} options={{
             headerShown: false
+        }} />
+        <Tab.Screen name='SearchDetail' component={SearchDetailScreen} options={{
+            headerShown: false,
+            tabBarButton: () => null,
+            tabBarVisible: false,
         }} />
     </Tab.Navigator>
   )

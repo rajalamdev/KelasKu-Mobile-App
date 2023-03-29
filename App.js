@@ -9,6 +9,7 @@ import Signup from './screens/SignupScreen';
 import 'react-native-gesture-handler';
 import { AppProvider } from './context/AppContext';
 import TabNavigators from './navigators/TabNavigators';
+import SearchDetailScreen from './screens/SearchDetailScreen';
 
 const Stack = createStackNavigator();
 

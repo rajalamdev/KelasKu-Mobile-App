@@ -2,13 +2,14 @@ import { StyleSheet, Text, View, Switch, Image, TouchableOpacity, Button, SafeAr
 import { useColorScheme } from 'nativewind';
 import BottomSheet from '@gorhom/bottom-sheet';
 import { BottomSheetScrollView } from '@gorhom/bottom-sheet';
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useAppContext } from '../context/AppContext';
 import { ScrollView } from 'react-native-gesture-handler';
 
 const HomeScreen = () => {
   const { currentUser } = useAppContext();
   const bottomSheetRef = useRef(null);
+
   // const [bottomSheetIndex, setBottomSheetIndex] = useState(0)
 
   const snapPoints = useMemo(() => ["68%", "98%"], []);

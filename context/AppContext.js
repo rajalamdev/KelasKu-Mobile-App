@@ -7,6 +7,53 @@ const useAppContext = () => useContext(AppContext)
 const AppProvider = ({children}) => {
     const [currentUser, setCurrentUser] = useState({})
 
+    const subjects = [
+        {
+            name: "Matematika",
+            progress: 0,
+            image: require("../assets/Subjects/math.jpg"),
+            material: [
+                {
+                    introduction: {
+                        what: {
+                            title: "Apa itu Matematika",
+                            content: ``
+                        }, 
+                        why: {
+                            title: "Kenapa harus belajar Matematika",
+                            content: ``
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            name: "Bahasa Indonesia",
+            progress: 0,
+            image: require("../assets/Subjects/indonesia.jpg")
+        },
+        {
+            name: "Bahasa Inggris",
+            progress: 0,
+            image: require("../assets/Subjects/english.jpg")
+        },
+        {
+            name: "Biologi",
+            progress: 0,
+            image: require("../assets/Subjects/english.jpg")
+        },
+        {
+            name: "Fisika",
+            progress: 0,
+            image: require("../assets/Subjects/english.jpg")
+        },
+        {
+            name: "Ilmu Komputer",
+            progress: 0,
+            image: require("../assets/Subjects/english.jpg")
+        },
+    ]
+    
     const [data, setData] = useState([
         {   
             id: "1",
@@ -21,7 +68,7 @@ const AppProvider = ({children}) => {
                     image: require("../assets/Subjects/math.jpg")
                 },
                 {
-                    name: "Indonesia",
+                    name: "Bahasa Indonesia",
                     progress: 30,
                     image: require("../assets/Subjects/indonesia.jpg")
                 },
@@ -47,7 +94,8 @@ const AppProvider = ({children}) => {
         data,
         setData,
         currentUser,
-        setCurrentUser
+        setCurrentUser,
+        subjects
     }
 
     return (
