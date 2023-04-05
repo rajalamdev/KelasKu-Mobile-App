@@ -51,11 +51,10 @@ export default function TabNavigators({ route }) {
         <Tab.Screen name="Profile" component={ProfileScreen} options={{
             headerShown: false
         }} />
-        <Tab.Screen name='SearchDetail' component={SearchDetailScreen} options={{
-            headerShown: false,
+        {/* <Tab.Screen name='SearchDetail' component={SearchDetailScreen} options={{
             tabBarButton: () => null,
             tabBarVisible: false,
-        }} />
+        }} /> */}
     </Tab.Navigator>
   )
 }

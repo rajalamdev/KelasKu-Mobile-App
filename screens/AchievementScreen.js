@@ -1,6 +1,8 @@
-import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
+import { SafeAreaView, View, Text } from 'react-native';
 import { useAppContext } from '../context/AppContext';
-import Markdown from "react-native-marked";
+// import Markdown from "react-native-marked";
+import { StatusBar } from 'expo-status-bar';
+import Markdown from 'react-native-easy-markdown';
 
 const AchievementScreen = () => {
   const copy = `# h1 Heading 8-)
@@ -13,14 +15,29 @@ const AchievementScreen = () => {
   // const {currentUser} = useAppContext()
   // console.log(currentUser)
   return (
-    <>
-    <StatusBar barStyle="dark-content" />
-    <SafeAreaView>
-        <Markdown
-      value={`![Image](https://plus.unsplash.com/premium_photo-1661606053042-4e60b54f568c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80)`}
-    />
+    <SafeAreaView className="h-full bg-white">
+    <StatusBar
+        style='dark'
+        backgroundColor="transparent"
+        translucent={true}
+      />
+    <View className="pt-8 px-4 h-full bg-white">
+      <Markdown markdownStyles	={{backgroundColor: "#fff"}}>
+      {
+          '# Why is markdown cool?\n\n' +
+
+          '* because it lets us do simple formatting **easily** \n' +
+          '* _without_ the need for complex CMS data structures \n' +
+          '* and you can outsource ~~your~~ work to the content creators! \n\n' +
+
+          '> This is a blockquote \n\n' +
+
+          '![We can add images!](http://placehold.it/300x300) \n' +
+          '[Or link to places](http://foobar.com) \n'
+        }
+      </Markdown>
+    </View>
     </SafeAreaView>
-  </>
   )
 }
 

@@ -5,6 +5,7 @@ import { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useAppContext } from '../context/AppContext';
 import { ScrollView } from 'react-native-gesture-handler';
+import { StatusBar } from 'expo-status-bar';
 
 const HomeScreen = () => {
   const { currentUser } = useAppContext();
@@ -12,7 +13,7 @@ const HomeScreen = () => {
 
   // const [bottomSheetIndex, setBottomSheetIndex] = useState(0)
 
-  const snapPoints = useMemo(() => ["68%", "98%"], []);
+  const snapPoints = useMemo(() => ["68%", "100%"], []);
   const handleSheetChanges = useCallback((index) => {
     // setBottomSheetIndex(index);
   }, []);
@@ -20,6 +21,11 @@ const HomeScreen = () => {
   const { colorScheme, toggleColorScheme, setColorScheme } = useColorScheme()
   return (
     <SafeAreaView className="flex-1 bg-[#3DB2FF]">
+       <StatusBar
+        style='dark'
+        backgroundColor="transparent"
+        translucent={true}
+      />
         <SafeAreaView className="w-full h-60 bg-[#3DB2FF] flex flex-row items-center">
           <View className="w-1/2 pl-8 pr-2">
             <Text className="text-xl text-white font-semibold mb-2">Hai, {currentUser.name}!</Text>

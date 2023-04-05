@@ -32,6 +32,11 @@ export default function App() {
           <Stack.Screen name='Tab' component={TabNavigators} options={{
             headerShown: false
           }} />
+          <Stack.Screen name='SearchDetail' component={SearchDetailScreen} options={{
+            headerShown: false,
+            cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid
+            // animationEnabled: false
+          }} />
           {/* <Stack.Screen name="Home" component={HomeScreen} options={{
             headerShown: false}} />
           <Stack.Screen name="Learning" component={LearningScreen} /> */}

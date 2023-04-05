@@ -1,12 +1,19 @@
 import { StyleSheet, Text, View, Switch, Image, Button } from 'react-native';
 import { useColorScheme } from 'nativewind';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
 
 const Signup = ({ navigation }) => {
   const { colorScheme, toggleColorScheme, setColorScheme } = useColorScheme()
 
   return (
-    <View className="flex-1 items-center justify-center bg-white dark:bg-[#1F1F39]">
+    <SafeAreaView className="flex-1 items-center justify-center bg-white dark:bg-[#1F1F39]">
+        <StatusBar
+          style='dark'
+          backgroundColor="transparent"
+          translucent={true}
+        />
         <View className="w-72">
           <Text className="text-2xl text-[#43463F] font-bold">Daftar</Text>
           <Text className="text-base text-[#43463F]">Selamat datang! Silahkan daftar!</Text>
@@ -25,7 +32,7 @@ const Signup = ({ navigation }) => {
             <Text className="text-[#3DB2FF]">Masuk</Text>
           </TouchableOpacity>
         </View>
-    </View>
+    </SafeAreaView>
   )
   }
 

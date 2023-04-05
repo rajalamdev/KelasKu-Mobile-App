@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "MyApp",
-    "slug": "MyApp",
+    "name": "KelasKu",
+    "slug": "kelaskuapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,6 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "androidStatusBar": {
+      "translucent": false
+    },
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -18,13 +21,27 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.kelasku.app",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/splash.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "751bdd89-28f5-4e70-9bce-41d49481267d"
+      }
+    },
+    "owner": "rajalamdev",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/751bdd89-28f5-4e70-9bce-41d49481267d"
     }
   }
 }
