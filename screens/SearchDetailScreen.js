@@ -5,7 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 
 const SearchDetailScreen = ({ route, navigation }) => {
-  const {image, name, progress} = route.params 
+  const currentSubject = route.params 
   const [modalVisible, setModalVisible] = useState(false);
   const [loadingDecrement, setLoadingDecrement] = useState(new Animated.Value(100*2.5));  
 
@@ -15,8 +15,8 @@ const SearchDetailScreen = ({ route, navigation }) => {
   // console.log(currentUser)
   function addSubject(){
     //   context.currentUser.subjects = [route.params, ...context.currentUser.subjects]
-    if(context.currentUser.subjects.some(subject => subject.name === name)){
-        return console.log('y')
+    if(context.currentUser.subjects.some(subject => subject.name === currentSubject.name)){
+        return navigation.navigate("Learning", currentSubject)
     }
 
     context.setCurrentUser((prev) => {
@@ -61,22 +61,22 @@ const SearchDetailScreen = ({ route, navigation }) => {
           </View>
         </View>
       </Modal>
-        <ImageBackground source={image} style={{width: "100%", height: 250}}>
+        <ImageBackground source={currentSubject?.image} style={{width: "100%", height: 250}}>
             <View className="w-full h-full flex justify-end px-4 pb-8" style={{backgroundColor: 'rgba(0,0,0,0.4)'}}>
                 <TouchableOpacity className="absolute top-4 -left-2 scale-90" onPress={() => navigation.goBack(null)}>
                     <Image source={require("../assets/back-button.png")} />
                 </TouchableOpacity>
-                <Text className="font-bold text-2xl text-white">{name}</Text>
-                <Text className="text-white text-base">turunan, integral, etc</Text>
+                <Text className="font-bold text-2xl text-white">{currentSubject.name}</Text>
+                <Text className="text-white text-base">{currentSubject.desc}</Text>
             </View>
         </ImageBackground>
         <View className="px-4 py-4 flex relative">
             <Text className="text-xl font-bold mb-2 text-[#212121]">Deskripsi</Text>
-            <Text className="text-[#6F6F6F]">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati ducimus, tempore delectus corporis nobis quidem quisquam consequatur illum. Nostrum, totam? Officiis nemo quod at numquam consectetur ducimus facere, reiciendis vel nostrum enim dolore cupiditate sed. Repellendus iusto quisquam, atque, laboriosam aperiam voluptatibus amet exercitationem inventore quas consequatur quos rem vitae, praesentium animi facere itaque debitis voluptas est natus libero nisi similique? Natus necessitatibus fuga deserunt repellendus a voluptatem, facere dolor officiis sequi et delectus, magni vitae. Soluta rem, iste vitae ut in delectus voluptate, dolor non magni earum nemo cum consectetur aliquid sit repellendus odit vel rerum saepe! Quod, placeat.</Text>
+            <Text className="text-[#6F6F6F]">{currentSubject.headline}</Text>
         </View>
         <TouchableOpacity className="bg-[#3DB2FF] px-12 py-3 rounded-full absolute bottom-8 self-center" onPress={addSubject}>
             <Text className="text-white text-base font-semibold text-center">
-                {context.currentUser.subjects.some(subject => subject.name === name) ? "Lanjut Belajar" : "Belajar Sekarang"}
+                {context.currentUser.subjects.some(subject => subject.name === currentSubject.name) ? "Lanjut Belajar" : "Belajar Sekarang"}
             </Text>
         </TouchableOpacity>
     </SafeAreaView>

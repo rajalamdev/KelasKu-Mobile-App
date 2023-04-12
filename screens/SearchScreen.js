@@ -60,7 +60,7 @@ const SearchScreen = ({ navigation }) => {
           subjects.map((subject, i) => {
             return (
               <TouchableOpacity key={i} className="w-1/2 py-2 px-2" onPress={() => navigation.navigate("SearchDetail", subject)} >
-                  <Image source={subject.image} style={{width: "100%", height: 120}} className="rounded-xl" />
+                  <Image source={subject.image}  style={{width: "100%", height: 120, shadowColor: "#000"}} className="rounded-xl" />
                   <Text className="font-medium text-[#212121] pt-1 pl-1">{subject.name}</Text>
               </TouchableOpacity>
             )

@@ -37,6 +37,11 @@ export default function App() {
             cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid
             // animationEnabled: false
           }} />
+          <Stack.Screen name='Learning' component={LearningScreen} options={{
+            headerShown: false,
+            cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid
+            // animationEnabled: false
+          }} />
           {/* <Stack.Screen name="Home" component={HomeScreen} options={{
             headerShown: false}} />
           <Stack.Screen name="Learning" component={LearningScreen} /> */}

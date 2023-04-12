@@ -7,7 +7,7 @@ import { useAppContext } from '../context/AppContext';
 import { ScrollView } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const { currentUser } = useAppContext();
   const bottomSheetRef = useRef(null);
 
@@ -52,12 +52,12 @@ const HomeScreen = () => {
                 <View className="w-[90%] mx-auto">
                 {currentUser.subjects.map((subject, i, arr) => {
                   return (
-                      <TouchableOpacity key={i} className={`flex-1 mb-4  flex-row border border-[#CDCDCD] rounded-lg`}>
+                      <TouchableOpacity onPress={() => navigation.navigate("Learning", subject)} key={i} className={`flex-1 mb-4  flex-row border border-[#CDCDCD] rounded-lg overflow-hidden`}>
                         <Image source={subject.image} className="w-1/2 h-24" />
                         <View className="w-1/2 px-2 py-2 relative">
                           <Text className="font-medium text-[#43463F]">{subject.name}</Text>
                           <View className="flex flex-row items-center absolute bottom-3 left-2">
-                            <View className="w-[130] h-[14] rounded-full overflow-hidden bg-[#FFF5EE]">
+                            <View className="w-[130] h-[14] rounded-full overflow-hidden bg-[#E5E5E5]">
                               <View className={`bg-[#2FDB81] h-full`} style={{width: `${subject.progress}%`}}></View>
                             </View>
                             <Text className="ml-1 text-xs">{subject.progress}%</Text>

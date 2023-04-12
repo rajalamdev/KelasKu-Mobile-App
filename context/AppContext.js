@@ -12,45 +12,163 @@ const AppProvider = ({children}) => {
             name: "Matematika",
             progress: 0,
             image: require("../assets/Subjects/math.jpg"),
+            headline: "limit, turunan, integral",
+            desc: "lorem dolor amet",
             material: [
                 {
-                    introduction: {
-                        what: {
-                            title: "Apa itu Matematika",
-                            content: ``
-                        }, 
-                        why: {
-                            title: "Kenapa harus belajar Matematika",
-                            content: ``
-                        }
-                    }
+                    name: "Pengenalan",
+                    image: require("../assets/Subjects/intro.png"),
+                    progress: 0,
+                    content: ``
+                },
+                {
+                    name: "Materi",
+                    image: require("../assets/Subjects/material.png"),
+                    progress: 0,
+                    content: ``
+                },
+                {
+                    name: "Kuis",
+                    image: require("../assets/Subjects/quiz.png"),
+                    progress: 0,
+                    content: ``
                 }
             ]
         },
         {
             name: "Bahasa Indonesia",
             progress: 0,
-            image: require("../assets/Subjects/indonesia.jpg")
+            image: require("../assets/Subjects/bahasa.jpg"),
+            headline: "Bahasa indonesia",
+            desc: "lorem dolor amet",
+            material: [
+                {
+                    name: "Pengenalan",
+                    image: require("../assets/Subjects/intro.png"),
+                    progress: 0,
+                    content: ``
+                },
+                {
+                    name: "Materi",
+                    image: require("../assets/Subjects/material.png"),
+                    progress: 0,
+                    content: ``
+                },
+                {
+                    name: "Kuis",
+                    image: require("../assets/Subjects/quiz.png"),
+                    progress: 0,
+                    content: ``
+                }
+            ]
         },
         {
             name: "Bahasa Inggris",
             progress: 0,
-            image: require("../assets/Subjects/english.jpg")
+            image: require("../assets/Subjects/english.jpg"),
+            headline: "Bahasa Inggris",
+            desc: "lorem dolor amet",
+            material: [
+                {
+                    name: "Pengenalan",
+                    image: require("../assets/Subjects/intro.png"),
+                    progress: 0,
+                    content: ``
+                },
+                {
+                    name: "Materi",
+                    image: require("../assets/Subjects/material.png"),
+                    progress: 0,
+                    content: ``
+                },
+                {
+                    name: "Kuis",
+                    image: require("../assets/Subjects/quiz.png"),
+                    progress: 0,
+                    content: ``
+                }
+            ]
         },
         {
             name: "Biologi",
             progress: 0,
-            image: require("../assets/Subjects/english.jpg")
+            image: require("../assets/Subjects/biologi.jpg"),
+            headline: "Biologi",
+            desc: "lorem dolor amet",
+            material: [
+                {
+                    name: "Pengenalan",
+                    image: require("../assets/Subjects/intro.png"),
+                    progress: 0,
+                    content: ``
+                },
+                {
+                    name: "Materi",
+                    image: require("../assets/Subjects/material.png"),
+                    progress: 0,
+                    content: ``
+                },
+                {
+                    name: "Kuis",
+                    image: require("../assets/Subjects/quiz.png"),
+                    progress: 0,
+                    content: ``
+                }
+            ]
         },
         {
             name: "Fisika",
             progress: 0,
-            image: require("../assets/Subjects/english.jpg")
+            image: require("../assets/Subjects/fisika.jpg"),
+            headline: "Fisika",
+            desc: "lorem dolor amet",
+            material: [
+                {
+                    name: "Pengenalan",
+                    image: require("../assets/Subjects/intro.png"),
+                    progress: 0,
+                    content: ``
+                },
+                {
+                    name: "Materi",
+                    image: require("../assets/Subjects/material.png"),
+                    progress: 0,
+                    content: ``
+                },
+                {
+                    name: "Kuis",
+                    image: require("../assets/Subjects/quiz.png"),
+                    progress: 0,
+                    content: ``
+                }
+            ]
         },
         {
             name: "Ilmu Komputer",
             progress: 0,
-            image: require("../assets/Subjects/english.jpg")
+            image: require("../assets/Subjects/tech.jpg"),
+            headline: "Jaringan, Pemrograman, Hardware",
+            desc: "lorem dolor amet",
+            material: [
+                {
+                    name: "Pengenalan",
+                    image: require("../assets/Subjects/intro.png"),
+                    progress: 0,
+                    content: ``
+                },
+                {
+                    name: "Materi",
+                    image: require("../assets/Subjects/material.png"),
+                    progress: 0,
+                    content: ``
+                },
+                {
+                    name: "Kuis",
+                    image: require("../assets/Subjects/quiz.png"),
+                    progress: 0,
+                    content: ``
+                }
+            ]
         },
     ]
     
@@ -63,19 +181,85 @@ const AppProvider = ({children}) => {
             email: "rajalamdev@gmail.com",
             subjects: [
                 {
-                    name: "Matematika",
+                    name: "Ilmu Komputer",
                     progress: 0,
-                    image: require("../assets/Subjects/math.jpg")
+                    image: require("../assets/Subjects/tech.jpg"),
+                    headline: "Jaringan, Pemrograman, Hardware",
+                    desc: "lorem dolor amet",
+                    material: [
+                        {
+                            name: "Pengenalan",
+                            image: require("../assets/Subjects/intro.png"),
+                            progress: 0,
+                            content: ``
+                        },
+                        {
+                            name: "Materi",
+                            image: require("../assets/Subjects/material.png"),
+                            progress: 0,
+                            content: ``
+                        },
+                        {
+                            name: "Kuis",
+                            image: require("../assets/Subjects/quiz.png"),
+                            progress: 0,
+                            content: ``
+                        }
+                    ]
                 },
                 {
                     name: "Bahasa Indonesia",
-                    progress: 30,
-                    image: require("../assets/Subjects/indonesia.jpg")
+                    progress: 0,
+                    image: require("../assets/Subjects/bahasa.jpg"),
+                    headline: "Bahasa indonesia",
+                    desc: "lorem dolor amet",
+                    material: [
+                        {
+                            name: "Pengenalan",
+                            image: require("../assets/Subjects/intro.png"),
+                            progress: 0,
+                            content: ``
+                        },
+                        {
+                            name: "Materi",
+                            image: require("../assets/Subjects/material.png"),
+                            progress: 0,
+                            content: ``
+                        },
+                        {
+                            name: "Kuis",
+                            image: require("../assets/Subjects/quiz.png"),
+                            progress: 0,
+                            content: ``
+                        }
+                    ]
                 },
                 {
-                    name: "Bahasa Inggris",
-                    progress: 80,
-                    image: require("../assets/Subjects/english.jpg")
+                    name: "Biologi",
+                    progress: 0,
+                    image: require("../assets/Subjects/biologi.jpg"),
+                    headline: "Biologi",
+                    desc: "lorem dolor amet",
+                    material: [
+                        {
+                            name: "Pengenalan",
+                            image: require("../assets/Subjects/intro.png"),
+                            progress: 0,
+                            content: ``
+                        },
+                        {
+                            name: "Materi",
+                            image: require("../assets/Subjects/material.png"),
+                            progress: 0,
+                            content: ``
+                        },
+                        {
+                            name: "Kuis",
+                            image: require("../assets/Subjects/quiz.png"),
+                            progress: 0,
+                            content: ``
+                        }
+                    ]
                 },
             ]
         },
