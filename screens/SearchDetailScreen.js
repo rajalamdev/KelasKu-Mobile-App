@@ -19,8 +19,8 @@ const SearchDetailScreen = ({ route, navigation }) => {
         return navigation.navigate("Learning", currentSubject)
     }
 
+    successfullModal()
     context.setCurrentUser((prev) => {
-        successfullModal()
         return {...prev, subjects: [route.params, ...prev.subjects]}
     })  
   }  

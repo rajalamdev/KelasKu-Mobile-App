@@ -10,6 +10,9 @@ import 'react-native-gesture-handler';
 import { AppProvider } from './context/AppContext';
 import TabNavigators from './navigators/TabNavigators';
 import SearchDetailScreen from './screens/SearchDetailScreen';
+import SecurityScreen from './screens/SecurityScreen';
+import SetupNameScreen from './screens/SetupNameScreen';
+import SetupEmail from './screens/SetupEmail';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +32,12 @@ export default function App() {
           <Stack.Screen name="Signup" component={Signup} options={{
             headerShown: false
           }} />
+          <Stack.Screen name="SetupName" component={SetupNameScreen} options={{
+            headerShown: false
+          }} />
+           <Stack.Screen name="SetupEmail" component={SetupEmail} options={{
+            headerShown: false
+          }} />
           <Stack.Screen name='Tab' component={TabNavigators} options={{
             headerShown: false
           }} />
@@ -38,6 +47,11 @@ export default function App() {
             // animationEnabled: false
           }} />
           <Stack.Screen name='Learning' component={LearningScreen} options={{
+            headerShown: false,
+            cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid
+            // animationEnabled: false
+          }} />
+          <Stack.Screen name='Security' component={SecurityScreen} options={{
             headerShown: false,
             cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid
             // animationEnabled: false

@@ -44,7 +44,7 @@ const SigninScreen = ({ navigation }) => {
     setPassword("")
     setMessage("")
     context.setCurrentUser(findUser)
-    navigation.navigate("Tab")
+    navigation.replace("Tab")
     // await SecureStore.setItemAsync("token", "dummytoken");
   }
 

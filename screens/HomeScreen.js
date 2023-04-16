@@ -22,7 +22,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView className="flex-1 bg-[#3DB2FF]">
        <StatusBar
-        style='dark'
+        style='light'
         backgroundColor="transparent"
         translucent={true}
       />

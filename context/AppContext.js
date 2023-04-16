@@ -6,6 +6,7 @@ const useAppContext = () => useContext(AppContext)
 
 const AppProvider = ({children}) => {
     const [currentUser, setCurrentUser] = useState({})
+    const [tmp, setTmp] = useState({})
 
     const subjects = [
         {
@@ -174,7 +175,6 @@ const AppProvider = ({children}) => {
     
     const [data, setData] = useState([
         {   
-            id: "1",
             username: "R",
             password: "R",
             name: "Raj Alam",
@@ -264,7 +264,6 @@ const AppProvider = ({children}) => {
             ]
         },
         {   
-            id: "2",
             username: "A",
             password: "A",
             name: "azura",
@@ -279,7 +278,9 @@ const AppProvider = ({children}) => {
         setData,
         currentUser,
         setCurrentUser,
-        subjects
+        subjects,
+        tmp,
+        setTmp
     }
 
     return (

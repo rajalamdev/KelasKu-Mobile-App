@@ -1,16 +1,19 @@
-import { Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View, Modal, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAppContext } from '../context/AppContext';
 import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 
 const ProfileScreen = ({ navigation }) => {
   const { currentUser } = useAppContext()
   // console.log(currentUser)
+  const [modalVisible, setModalVisible] = useState(false)
+
   return (
     <SafeAreaView className="h-full bg-white">
-       <StatusBar
-        style='dark'
-        backgroundColor="transparent"
+      <StatusBar
+        style='light'
+        backgroundColor="#3DB2FF"
         translucent={true}
       />
       <ScrollView>
@@ -68,7 +71,7 @@ const ProfileScreen = ({ navigation }) => {
                 </View>
                 <Image source={require("../assets/Profile/arrow-right.png")} />
               </TouchableOpacity>
-              <TouchableOpacity className="flex-row justify-between items-center">
+              <TouchableOpacity className="flex-row justify-between items-center" onPress={() => navigation.navigate("Security")}>
                 <View className="flex-row gap-4 items-center">
                   <Image source={require("../assets/Profile/security.png")} />
                   <Text>Keamanan</Text>
@@ -83,12 +86,42 @@ const ProfileScreen = ({ navigation }) => {
               <TouchableOpacity>
                 <Text className="text-[#3E5FAF]">Ganti ke akun lain</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.replace("Signin")}>
+              <TouchableOpacity onPress={() => setModalVisible(true)}>
                 <Text className="text-[#FB6D64]">Keluar</Text>
               </TouchableOpacity>
             </View>
           </View>
         </View>
+        <View className={`top-0 bottom-0 left-0 ${modalVisible ? "right-0" : ""} bg-black/50 absolute`}>
+
+        </View>
+        <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}>
+        <View className="absolute bottom-0 left-0 right-0 z-50">
+          <View className="w-full pt-12 pb-8 rounded-t-3xl relative bg-white overflow-hidden">
+            <Text className="text-black text-center font-bold text-xl">Keluar akun?</Text>
+            <Text className="text-black text-center">apakah anda yakin ingin keluar dari akun ini?</Text>            
+            <TouchableOpacity
+              className="mx-auto bg-red-500 px-28 py-2 rounded-full mt-8"
+              onPress={() => {
+                setModalVisible(false)
+                navigation.replace("Signin")
+              }}>
+              <Text className="text-base font-medium text-white">Keluar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              className="mx-auto px-28 py-2 rounded-full mt-2"
+              onPress={() => setModalVisible(false)}>
+              <Text className="text-base font-medium text-black">Batal</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
       </ScrollView>
     </SafeAreaView>
   )
