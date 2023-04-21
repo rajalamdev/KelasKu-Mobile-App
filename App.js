@@ -13,6 +13,8 @@ import SearchDetailScreen from './screens/SearchDetailScreen';
 import SecurityScreen from './screens/SecurityScreen';
 import SetupNameScreen from './screens/SetupNameScreen';
 import SetupEmail from './screens/SetupEmail';
+import SetupUsername from './screens/SetupUsername';
+import SetupPassword from './screens/SetupPassword'
 
 const Stack = createStackNavigator();
 
@@ -35,7 +37,13 @@ export default function App() {
           <Stack.Screen name="SetupName" component={SetupNameScreen} options={{
             headerShown: false
           }} />
+          <Stack.Screen name="SetupUsername" component={SetupUsername} options={{
+            headerShown: false
+          }} />
            <Stack.Screen name="SetupEmail" component={SetupEmail} options={{
+            headerShown: false
+          }} />
+            <Stack.Screen name="SetupPassword" component={SetupPassword} options={{
             headerShown: false
           }} />
           <Stack.Screen name='Tab' component={TabNavigators} options={{

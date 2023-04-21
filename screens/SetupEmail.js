@@ -17,6 +17,7 @@ const SetupEmail = ({navigation}) => {
         email: email        
     })
 
+    navigation.navigate("SetupPassword")
     console.log(context.tmp)
   }  
 
@@ -32,7 +33,8 @@ const SetupEmail = ({navigation}) => {
                 if (value.length > 0){
                     setError(false)
                 }
-            }} className={`border-b mt-8 border-[#3C3C43] ${error ? "border-red-500" : "focus:border-black"} py-2`} placeholder="EX: Lenathea Lavia" />
+            }} textContentType="emailAddress" className={`border-b mt-8 border-[#3C3C43] ${error ? "border-red-500" : "focus:border-black"} py-2`} placeholder="EX: lenathea@gmail.com" autoCapitalize={'none'}
+            autoCorrect={false} />
             <TouchableOpacity className="bg-[#3DB2FF] px-9 rounded-full py-4 mt-8" onPress={nextHandler}>
                 <Text className="text-center text-white font-medium">Lanjut</Text>
             </TouchableOpacity>

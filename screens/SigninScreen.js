@@ -82,6 +82,7 @@ const SigninScreen = ({ navigation }) => {
                 setErrorUsername(false)
               }
             }} 
+            autoCapitalize={'none'}
           />
           <TextInput className={`border w-72 py-1 px-4 rounded-full border-[#C9C9C9] ${errorPassword ? "border-red-500" : "focus:border-[#333]"} `} 
           placeholder='********' 
@@ -91,7 +92,9 @@ const SigninScreen = ({ navigation }) => {
             if (value.length > 0){
               setErrorPassword(false)
             }
-          }} />
+          }}
+          autoCapitalize={'none'}
+          />
         </View>
         <Text className="text-red-500 text-xs mt-2 text-left">{message}</Text>
         <TouchableOpacity className="bg-[#3DB2FF] w-72 py-2 mt-4 px-4 rounded-full" onPress={loginHandler}>

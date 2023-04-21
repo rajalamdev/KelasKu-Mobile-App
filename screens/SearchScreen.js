@@ -28,8 +28,8 @@ const SearchScreen = ({ navigation }) => {
   return (
     <SafeAreaView className="bg-white h-full">
        <StatusBar
-        style='dark'
-        backgroundColor="transparent"
+        style='light'
+        backgroundColor="black"
         translucent={true}
       />
       <View className="relative w-full h-[152]">

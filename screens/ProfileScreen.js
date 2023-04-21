@@ -5,7 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 
 const ProfileScreen = ({ navigation }) => {
-  const { currentUser } = useAppContext()
+  const { currentUser, setCurrentUser } = useAppContext()
   // console.log(currentUser)
   const [modalVisible, setModalVisible] = useState(false)
 
@@ -50,7 +50,7 @@ const ProfileScreen = ({ navigation }) => {
               <Text className="text-center text-[#898989]">Pencapaian</Text>
             </View>
             <View className="px-2 py-2">
-              <Text className="text-base text-center font-medium">{currentUser.subjects.length}</Text>
+              <Text className="text-base text-center font-medium">{currentUser?.subjects?.length}</Text>
               <Text className="text-center text-[#898989]">Pelajaran</Text>
             </View>
           </View>
@@ -111,6 +111,7 @@ const ProfileScreen = ({ navigation }) => {
               onPress={() => {
                 setModalVisible(false)
                 navigation.replace("Signin")
+                setCurrentUser({})
               }}>
               <Text className="text-base font-medium text-white">Keluar</Text>
             </TouchableOpacity>

@@ -29,7 +29,7 @@ const HomeScreen = ({ navigation }) => {
         <SafeAreaView className="w-full h-60 bg-[#3DB2FF] flex flex-row items-center">
           <View className="w-1/2 pl-8 pr-2">
             <Text className="text-xl text-white font-semibold mb-2">Hai, {currentUser.name}!</Text>
-            <Text className="text-white">Pelajaran apa yang anda ingin pelajari?</Text>
+            <Text className="text-white">Pelajaran apa yang ingin anda pelajari?</Text>
           </View>
           <View className="w-1/2">
             <Image source={require("../assets/illustration-home.png")} className="w-full h-full" />
@@ -44,16 +44,16 @@ const HomeScreen = ({ navigation }) => {
             >
             <Text className="text-lg text-center pt-2 pb-4 text-[#43463F] font-medium">Pelajaran yang sedang dipelajari</Text>
             <BottomSheetScrollView >
-              {!currentUser.subjects.length ? (
+              {!currentUser?.subjects?.length ? (
                 <Text className={`text-slate-500 mx-auto mt-44 transition-all border border-slate-500 border-dashed p-2`}>
                   {"Belum ada pelajaran yang dipelajari :("}
                 </Text>
               ): (
                 <View className="w-[90%] mx-auto">
-                {currentUser.subjects.map((subject, i, arr) => {
+                {currentUser?.subjects?.map((subject, i, arr) => {
                   return (
                       <TouchableOpacity onPress={() => navigation.navigate("Learning", subject)} key={i} className={`flex-1 mb-4  flex-row border border-[#CDCDCD] rounded-lg overflow-hidden`}>
-                        <Image source={subject.image} className="w-1/2 h-24" />
+                        <Image source={subject.image} className="w-1/2 h-28" style={{ alignSelf: 'center', resizeMode: 'cover' }} />
                         <View className="w-1/2 px-2 py-2 relative">
                           <Text className="font-medium text-[#43463F]">{subject.name}</Text>
                           <View className="flex flex-row items-center absolute bottom-3 left-2">

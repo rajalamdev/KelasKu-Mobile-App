@@ -182,7 +182,7 @@ const AppProvider = ({children}) => {
             subjects: [
                 {
                     name: "Ilmu Komputer",
-                    progress: 0,
+                    progress: 30,
                     image: require("../assets/Subjects/tech.jpg"),
                     headline: "Jaringan, Pemrograman, Hardware",
                     desc: "lorem dolor amet",
@@ -209,7 +209,7 @@ const AppProvider = ({children}) => {
                 },
                 {
                     name: "Bahasa Indonesia",
-                    progress: 0,
+                    progress: 78,
                     image: require("../assets/Subjects/bahasa.jpg"),
                     headline: "Bahasa indonesia",
                     desc: "lorem dolor amet",
