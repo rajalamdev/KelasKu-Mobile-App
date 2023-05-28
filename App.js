@@ -15,6 +15,7 @@ import SetupNameScreen from './screens/SetupNameScreen';
 import SetupEmail from './screens/SetupEmail';
 import SetupUsername from './screens/SetupUsername';
 import SetupPassword from './screens/SetupPassword'
+import MaterialScreen from './screens/MaterialScreen';
 
 const Stack = createStackNavigator();
 
@@ -60,6 +61,11 @@ export default function App() {
             // animationEnabled: false
           }} />
           <Stack.Screen name='Security' component={SecurityScreen} options={{
+            headerShown: false,
+            cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid
+            // animationEnabled: false
+          }} />
+          <Stack.Screen name='Material' component={MaterialScreen} options={{
             headerShown: false,
             cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid
             // animationEnabled: false

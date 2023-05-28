@@ -3,6 +3,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAppContext } from '../context/AppContext';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
+import ProgressCircle from 'react-native-progress-circle'
 
 const SearchDetailScreen = ({ route, navigation }) => {
   const currentSubject = route.params 
@@ -79,6 +80,16 @@ const SearchDetailScreen = ({ route, navigation }) => {
                 {context.currentUser.subjects.some(subject => subject.name === currentSubject.name) ? "Lanjut Belajar" : "Belajar Sekarang"}
             </Text>
         </TouchableOpacity>
+        <ProgressCircle
+            percent={30}
+            radius={50}
+            borderWidth={8}
+            color="#3399FF"
+            shadowColor="#999"
+            bgColor="#fff"
+        >
+            <Text style={{ fontSize: 18 }}>{'30%'}</Text>
+        </ProgressCircle>
     </SafeAreaView>
   )
 }

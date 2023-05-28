@@ -20,10 +20,37 @@ const AppProvider = ({children}) => {
                     name: "Pengenalan",
                     image: require("../assets/Subjects/intro.png"),
                     progress: 0,
+                    content: `
+                    # Apa itu Matematika
+
+Matematika adalah suatu yang berkaitan dengan ide-ide/konsep-konsep abstrak yang tersusun secara hirarkis melalui penalaran yang bersifat deduktif, sedangkan jika matematika di PAUD itu merupakan kegiatan belajar tentang konsep matematika melalui aktifitas bermain dalam kehidupan sehari-hari dan bersifat ilmiah. Tujuan pengenalan matematika pada anak usia dini adalah agar anak mengetahui dasar-dasar pembelajaran berhitung/matematika, sehingga pada saat nanti anak akan lebih siap mengikuti pembelajaran matematika pada jenjang pendidikan selanjutnya yang lebih komplek. Pengetahuan tentang matematika sebenarnya sudah diperkenalkan sejak mulai usia lahir sampai 6 tahunan (sejak usia dini). Konsep pembelajaran anak yang berusia dibawah 3 tahun itu bisa ditemukan didalam kegiatan sehari-harinya, semisal anak menuangkan air dari wadah satu ke wadah yang lainnya, diajarkan menghitung manik-manik kecil maupun manik-manik yang berukuran besar.
+
+lalu diantara kalian pasti ada yang bertanya-tanya, **"Emang gunanya MTK di kehidupan sehari-hari apa sih MinKu? kan kita gak mungkin saat beli Siomay ngitungin kembaliannya pake Integral :D"**.
+
+nah Matematika itu banyak manfaat nya lho, bukan cuma digunakan hanya untuk menghitung saat jual/beli Siomay ya hehe. **MinKu** bakal spill beberapa manfaat belajar Matematika di kehidupan sehari-hari:
+
+1. Meningkatkan kemampuan logika.
+2. Mendorong kemampuan problem solving.
+3. Membantu belajar mengelola keuangan.
+4. Bagus untuk perkembangan otak.
+
+itu hanya sebagian kecil manfaat dari belajar Matematika ya ges ya masih banyak lagi manfaat nya di kehidupan sehari-hari, mungkin materi pengenalan Matematika dari **MinKu** sampai situ saja, kalau banyak-banyak kalian pasti males bacanya hehe, semangat belajar! jangan lupa dilanjutin materinya ya :D.
+                    `
+                },
+                {
+                    name: "Limit",
+                    image: require("../assets/Subjects/material.png"),
+                    progress: 0,
                     content: ``
                 },
                 {
-                    name: "Materi",
+                    name: "Turunan",
+                    image: require("../assets/Subjects/material.png"),
+                    progress: 0,
+                    content: ``
+                },
+                {
+                    name: "Integral",
                     image: require("../assets/Subjects/material.png"),
                     progress: 0,
                     content: ``
@@ -181,7 +208,7 @@ const AppProvider = ({children}) => {
             email: "rajalamdev@gmail.com",
             subjects: [
                 {
-                    name: "Ilmu Komputer",
+                    name: "Komputer",
                     progress: 30,
                     image: require("../assets/Subjects/tech.jpg"),
                     headline: "Jaringan, Pemrograman, Hardware",

@@ -62,7 +62,7 @@ const SigninScreen = ({ navigation }) => {
   // }
 
   return (
-    <SafeAreaView className="flex-1 items-center justify-center dark:bg-[#1F1F39] dark:bg-white bg-white">
+    <SafeAreaView className="flex-1 items-center justify-center dark:bg-[#1F1F39] light:bg-white bg-white">
       <StatusBar
         style='dark'
         backgroundColor="transparent"
