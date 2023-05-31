@@ -7,10 +7,11 @@ const MaterialScreen = ({ navigation, route }) => {
   const materialContent = route.params.content
 
   return (
-    <ScrollView className="px-6">
-        <Markdown>
+    <ScrollView className="px-4 pb-4 bg-white">
+        <Markdown markdownStyles={{backgroundColor: "#fff"}}>
             {materialContent}
         </Markdown>
+
     </ScrollView>
   )
   }

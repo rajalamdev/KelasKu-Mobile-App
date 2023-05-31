@@ -35,7 +35,8 @@ nah Matematika itu banyak manfaat nya lho, bukan cuma digunakan hanya untuk meng
 4. Bagus untuk perkembangan otak.
 
 itu hanya sebagian kecil manfaat dari belajar Matematika ya ges ya masih banyak lagi manfaat nya di kehidupan sehari-hari, mungkin materi pengenalan Matematika dari **MinKu** sampai situ saja, kalau banyak-banyak kalian pasti males bacanya hehe, semangat belajar! jangan lupa dilanjutin materinya ya :D.
-                    `
+                    
+![Javatpoint](https://media-exp1.licdn.com/dms/image/C4D0BAQEwg5FK93uumQ/company-logo_200_200/0/1519923012279?e=2147483647&v=beta&t=63CNoS8OTR4lHjPhHSO7eFFqwLGwYunWfyDBV3tdc0c)`
                 },
                 {
                     name: "Limit",
