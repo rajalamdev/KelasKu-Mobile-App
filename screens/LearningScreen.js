@@ -7,8 +7,12 @@ const LearningScreen = ({route, navigation}) => {
   const {currentUser} = useAppContext()
   const currentSubject = route.params
 
-  function learning(mapel){
-    navigation.navigate("Material", mapel)
+  function learning(materi){
+    if (materi.name === "Kuis"){
+      navigation.navigate("Quiz", [currentSubject, materi])
+    } else {
+      navigation.navigate("Material", [currentSubject, materi])
+    }
   }
   
   return (

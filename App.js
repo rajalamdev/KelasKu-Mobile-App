@@ -16,6 +16,7 @@ import SetupEmail from './screens/SetupEmail';
 import SetupUsername from './screens/SetupUsername';
 import SetupPassword from './screens/SetupPassword'
 import MaterialScreen from './screens/MaterialScreen';
+import QuizScreen from './screens/QuizScreen';
 
 const Stack = createStackNavigator();
 
@@ -66,6 +67,11 @@ export default function App() {
             // animationEnabled: false
           }} />
           <Stack.Screen name='Material' component={MaterialScreen} options={{
+            headerShown: false,
+            cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid
+            // animationEnabled: false
+          }} />
+           <Stack.Screen name='Quiz' component={QuizScreen} options={{
             headerShown: false,
             cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid
             // animationEnabled: false

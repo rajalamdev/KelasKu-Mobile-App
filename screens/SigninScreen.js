@@ -19,7 +19,7 @@ const SigninScreen = ({ navigation }) => {
     setColorScheme("light")
   }, [])
 
-  async function loginHandler(){
+  function loginHandler(){
     if(username == "" || password == "") { 
       setErrorUsername(true) 
       setErrorPassword(true)
@@ -44,6 +44,7 @@ const SigninScreen = ({ navigation }) => {
     setPassword("")
     setMessage("")
     context.setCurrentUser(findUser)
+    // context.setCurrentSubject(findUser.subjects)
     navigation.replace("Tab")
     // await SecureStore.setItemAsync("token", "dummytoken");
   }

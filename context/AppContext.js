@@ -6,6 +6,7 @@ const useAppContext = () => useContext(AppContext)
 
 const AppProvider = ({children}) => {
     const [currentUser, setCurrentUser] = useState({})
+    const [currentSubject, setCurrentSubject] = useState({})
     const [tmp, setTmp] = useState({})
 
     const subjects = [
@@ -60,7 +61,71 @@ itu hanya sebagian kecil manfaat dari belajar Matematika ya ges ya masih banyak 
                     name: "Kuis",
                     image: require("../assets/Subjects/quiz.png"),
                     progress: 0,
-                    content: ``
+                    content: [
+                        {
+                            question: "Siapakah dia?",
+                            option: [
+                                {
+                                    answer: "siapa ya",
+                                    theAnswerIsTrue: true
+                                },
+                                {
+                                    answer: "tau ya",
+                                    theAnswerIsTrue: false
+                                },
+                                {
+                                    answer: "emang ya",
+                                    theAnswerIsTrue: false
+                                },
+                                {
+                                    answer: "hhmmmm ya",
+                                    theAnswerIsTrue: false
+                                }
+                            ]
+                        },
+                        {
+                            question: "lim x 2424?",
+                            option: [
+                                {
+                                    answer: "20",
+                                    theAnswerIsTrue: false
+                                },
+                                {
+                                    answer: "emang",
+                                    theAnswerIsTrue: false
+                                },
+                                {
+                                    answer: "y",
+                                    theAnswerIsTrue: true
+                                },
+                                {
+                                    answer: "h",
+                                    theAnswerIsTrue: false
+                                }
+                            ]
+                        },
+                        {
+                            question: "turu dek",
+                            option: [
+                                {
+                                    answer: "behhh",
+                                    theAnswerIsTrue: false
+                                },
+                                {
+                                    answer: "wkwk",
+                                    theAnswerIsTrue: true
+                                },
+                                {
+                                    answer: "awokwokwok",
+                                    theAnswerIsTrue: false
+                                },
+                                {
+                                    answer: "h",
+                                    theAnswerIsTrue: false
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -173,7 +238,7 @@ itu hanya sebagian kecil manfaat dari belajar Matematika ya ges ya masih banyak 
             ]
         },
         {
-            name: "Ilmu Komputer",
+            name: "Komputer",
             progress: 0,
             image: require("../assets/Subjects/tech.jpg"),
             headline: "Jaringan, Pemrograman, Hardware",
@@ -308,7 +373,9 @@ itu hanya sebagian kecil manfaat dari belajar Matematika ya ges ya masih banyak 
         setCurrentUser,
         subjects,
         tmp,
-        setTmp
+        setTmp,
+        currentSubject,
+        setCurrentSubject
     }
 
     return (
