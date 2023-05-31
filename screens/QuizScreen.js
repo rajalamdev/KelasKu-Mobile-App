@@ -5,6 +5,7 @@ import { useAppContext } from '../context/AppContext';
 
 const QuizScreen = ({ navigation, route }) => {
   const currentSubject = route.params[0]
+  
   const materialContent = route.params[1].content
   const context = useAppContext()
 
