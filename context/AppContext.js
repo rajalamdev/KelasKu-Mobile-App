@@ -63,7 +63,7 @@ itu hanya sebagian kecil manfaat dari belajar Matematika ya ges ya masih banyak 
                     progress: 0,
                     content: [
                         {
-                            question: "Siapakah dia?",
+                            question: `# Siapakah dia`,
                             option: [
                                 {
                                     answer: "siapa ya",
@@ -81,10 +81,11 @@ itu hanya sebagian kecil manfaat dari belajar Matematika ya ges ya masih banyak 
                                     answer: "hhmmmm ya",
                                     theAnswerIsTrue: false
                                 }
-                            ]
+                            ],
+                            finish: false
                         },
                         {
-                            question: "lim x 2424?",
+                            question: `# lim x 2424?`,
                             option: [
                                 {
                                     answer: "20",
@@ -102,10 +103,11 @@ itu hanya sebagian kecil manfaat dari belajar Matematika ya ges ya masih banyak 
                                     answer: "h",
                                     theAnswerIsTrue: false
                                 }
-                            ]
+                            ],
+                            finish: false
                         },
                         {
-                            question: "turu dek",
+                            question: `# turu dek`,
                             option: [
                                 {
                                     answer: "behhh",
@@ -123,7 +125,8 @@ itu hanya sebagian kecil manfaat dari belajar Matematika ya ges ya masih banyak 
                                     answer: "h",
                                     theAnswerIsTrue: false
                                 }
-                            ]
+                            ],
+                            finish: false
                         }
                     ]
                 }

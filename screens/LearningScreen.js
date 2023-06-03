@@ -9,7 +9,7 @@ const LearningScreen = ({route, navigation}) => {
 
   function learning(materi){
     if (materi.name === "Kuis"){
-      navigation.navigate("Quiz", [currentSubject, materi])
+      navigation.navigate("Quiz", [currentSubject, materi, 0])
     } else {
       navigation.navigate("Material", [currentSubject, materi])
     }

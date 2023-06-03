@@ -27,6 +27,8 @@ const MaterialScreen = ({ navigation, route }) => {
     context.setCurrentUser((prev) => {
       return {...prev, subjects: [updatedSubject, ...exceptCurrentSubject]}
     })
+
+    navigation.goBack(null)
   }
   
   return (

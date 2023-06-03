@@ -2,27 +2,116 @@ import { StyleSheet, Text, View, Switch, Image, Button, ScrollView, TouchableOpa
 import { StatusBar } from 'expo-status-bar';
 import Markdown from 'react-native-easy-markdown';
 import { useAppContext } from '../context/AppContext';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useEffect, useState } from 'react';
 
 const QuizScreen = ({ navigation, route }) => {
   const currentSubject = route.params[0]
-  
-  const materialContent = route.params[1].content
+  const materialContent = route.params[1]
+  const currentQuiz = route.params[2]
+  const quizLength = materialContent.content.length
+  const [selectAnswer, setSelectAnswer] = useState(null)
   const context = useAppContext()
+  const [disableCheckAnswer, setDisableCheckAnswer] = useState(true)
+  const [checkAnswer, setCheckAnswer] = useState(null)
+  const [nextQuestionButton, setNextQuestionButton] = useState(false)
+  const [message, setMessage] = useState("")
+  const [disableSelectAnswer, setDisableSelectAnswer] = useState(false)
 
-  function doneRead(){
+  useEffect(() => {
+    materialContent.content[0].finish = true
+  })
 
+  function checkAnswerHandler(){    
+    setDisableSelectAnswer(true)
+    if(materialContent.content[currentQuiz].option[selectAnswer].theAnswerIsTrue){
+      setCheckAnswer(true)
+      setMessage("Jawaban Benar!")
+    } else {
+      setCheckAnswer(false)
+      setMessage("Jawaban Salah!")
+    }
+    
+    setNextQuestionButton(true)
+  }
+
+  function selectAnswerHandler(id, opt){
+    setSelectAnswer(id)
+    setDisableCheckAnswer(false)
+    // setCurrentAnswer(opt.answer)
+    // setCheckAnswer(opt.theAnswerIsTrue)
+  }
+
+  function nextQuestionHandler(){
+    if (currentQuiz >= quizLength - 1){
+      materialContent.progress = 100
+      currentSubject.progress = currentSubject.progress / currentSubject.material.length
+
+      materialContent.content.map(material => {
+        material.finish = false
+      })
+      context.setCurrentUser((prev) => {
+        return {...prev}
+      })
+
+      return navigation.goBack(null)
+    }
+
+    setSelectAnswer(null)
+    setDisableCheckAnswer(true)
+    setNextQuestionButton(false)
+    setMessage("")
+    setDisableCheckAnswer(true)
+    setDisableSelectAnswer(false)
+    navigation.navigate("Quiz", [currentSubject, materialContent, currentQuiz + 1])
+    materialContent.content[currentQuiz + 1].finish = true
   }
   
   return (
-    <ScrollView className="px-4 pb-4 bg-white">
-        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis illo velit reiciendis tempora optio ipsa nobis accusamus nisi facere ut quisquam vitae dolorum ex quis esse sequi eum laboriosam, necessitatibus mollitia explicabo veniam nihil. Architecto, vel totam autem ullam distinctio dolorem dolor tenetur quos aspernatur voluptatum quo perspiciatis laudantium accusantium quas facere voluptatem eum libero ipsa tempora, ab saepe assumenda perferendis quidem mollitia! Quaerat unde laborum hic. Qui doloremque hic autem rerum expedita animi cum id dignissimos, minus inventore? Facere nulla, voluptate totam expedita labore earum id animi odio sequi autem iste blanditiis eos quidem veniam ad sit in maiores?</Text>
-        <TouchableOpacity className="bg-[#3DB2FF] px-8 py-3 rounded-full items-center self-center mt-4 mb-6 flex-row" onPress={doneRead}>
-            <Text className="text-white text-base font-semibold text-center mr-2">
-                Selesai
-            </Text>
-            <Image source={require("../assets/button-next.png")}  />
-        </TouchableOpacity>
-    </ScrollView>
+    <SafeAreaView className="bg-white h-full relative flex">
+          <View className="justify-center py-4 flex-row gap-1">
+            {materialContent.content.map(bar => {
+              return <View className={`${bar.finish ? "bg-[#3DB2FF]" : "bg-[#E5E5E5]"} w-12 h-3 rounded-full`}></View>
+            })}
+          </View>
+          <View className="items-center px-4 py-32">
+            <Markdown markdownStyles	={{backgroundColor: "#fff"}}>
+              {
+                materialContent.content[currentQuiz]?.question
+              }
+            </Markdown>
+          </View>
+          <View className="flex-row gap-8 flex-wrap justify-center">
+            {materialContent.content[currentQuiz]?.option.map((opt, i) => {
+              return (
+                <TouchableOpacity disabled={disableSelectAnswer} onPress={() => selectAnswerHandler(i, opt)} key={i} className={`${i === selectAnswer ? "bg-slate-800" : "bg-[#3DB2FF]"} ${i === selectAnswer ? "scale-95" : ""} 
+                ${(nextQuestionButton && checkAnswer) && (i === selectAnswer) ? "bg-green-500" : ""}
+                ${(nextQuestionButton && !checkAnswer) && (i === selectAnswer) ? "bg-red-500" : ""}
+                 px-2 py-4 w-[35%] rounded-xl`}>
+                  <Text className="text-white text-center text-lg font-semibold">{opt.answer}</Text>
+                </TouchableOpacity>
+              )
+            })}
+          </View>
+          <View className="mt-8 ml-8">
+            <Text className={`${checkAnswer ? "text-green-500" : "text-red-500"} text-lg font-medium`}>{message}</Text>
+          </View>
+          <View className="absolute bottom-8 self-center"> 
+            {nextQuestionButton ? (
+              <TouchableOpacity className={`bg-[#3DB2FF] px-8 py-3 rounded-full items-center self-center mt-4 mb-6 flex-row`} onPress={nextQuestionHandler}>
+                  <Text className="text-white text-base font-semibold text-center mr-2">
+                      {currentQuiz >= quizLength - 1 ? "selesai": "lanjutkan"}
+                  </Text>
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity disabled={disableCheckAnswer} className={`${!disableCheckAnswer ? "bg-[#3DB2FF]" : "bg-gray-300"} px-8 py-3 rounded-full items-center self-center mt-4 mb-6 flex-row`} onPress={checkAnswerHandler}>
+                <Text className="text-white text-base font-semibold text-center mr-2">
+                    periksa
+                </Text>
+              </TouchableOpacity>  
+            )}
+          </View>
+    </SafeAreaView>
   )
   }
 
