@@ -13,7 +13,7 @@ const MaterialScreen = ({ navigation, route }) => {
     materialContent.progress = 100
     const total = currentSubject.material.reduce((acc, curVal) => acc + curVal.progress, 0)
 
-    currentSubject.progress = total / currentSubject.material.length
+    currentSubject.progress = parseInt(total / currentSubject.material.length)
     
     const exceptCurrentSubject = context.currentUser.subjects.filter(subject => subject.name != currentSubject.name)
 

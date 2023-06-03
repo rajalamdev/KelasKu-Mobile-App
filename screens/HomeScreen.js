@@ -58,7 +58,7 @@ const HomeScreen = ({ navigation }) => {
                           <Text className="font-medium text-[#43463F]">{subject.name}</Text>
                           <View className="flex flex-row items-center absolute bottom-3 left-2">
                             <View className="w-[130] h-[14] rounded-full overflow-hidden bg-[#E5E5E5]">
-                              <View className={`bg-[#2FDB81] h-full`} style={{width: `${subject.progress}%`}}></View>
+                              <View className={`bg-[#2FDB81] h-full`} style={{width: `${parseInt(subject.progress)}%`}}></View>
                             </View>
                             <Text className="ml-1 text-xs">{subject.progress}%</Text>
                           </View>

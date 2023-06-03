@@ -45,14 +45,27 @@ const QuizScreen = ({ navigation, route }) => {
   function nextQuestionHandler(){
     if (currentQuiz >= quizLength - 1){
       materialContent.progress = 100
-      currentSubject.progress = currentSubject.progress / currentSubject.material.length
+      const total = currentSubject.material.reduce((acc, curVal) => acc + curVal.progress, 0)
+
+      const exceptCurrentSubject = context.currentUser.subjects.filter(subject => subject.name != currentSubject.name)
+
+      const filteredSubject = context.currentUser.subjects.findIndex(subject => subject.name == currentSubject.name)
+
+      const updatedSubject = context.currentUser.subjects[filteredSubject] = {
+        ...context.currentUser.subjects[filteredSubject],
+        progress: parseInt(total / currentSubject.material.length)
+      }
 
       materialContent.content.map(material => {
         material.finish = false
       })
+
       context.setCurrentUser((prev) => {
-        return {...prev}
+        return {...prev, subjects: [updatedSubject, ...exceptCurrentSubject]}
       })
+      // context.setCurrentUser((prev) => {
+      //   return {...prev}
+      // })
 
       return navigation.goBack(null)
     }
