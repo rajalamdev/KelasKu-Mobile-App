@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "my-app",
+    "name": "KelasKu",
     "slug": "my-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.rajalamdev.myapp"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/icon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f5caa7a9-b9d1-4607-864c-fa1569c78a7a"
+      }
     }
   }
 }
